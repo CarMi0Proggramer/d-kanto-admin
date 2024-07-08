@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 import { calculatePagination, calculateSections, estimateCurrentPage, loadProducts, products } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 
@@ -65,7 +65,7 @@ export function filter() {
 }
 
 /* CLEAR FILTERS FUNCTION */
-export function clearFilters() {
+export function clearFilters(selectionOnly?: boolean) {
     /* CLEARING CATEGORY FILTERS */
     for (let el of categoryListEls) {
         let input = el.querySelector("input") as HTMLInputElement;
@@ -87,23 +87,25 @@ export function clearFilters() {
     filterMatches = [];
 
     /* LOADING PRODUCTS AGAIN */
-    loadProducts(products, 1, 0, {
-        inverse: false,
-        searchOptions: false,
-        filterOption: false
-    })
-    calculatePagination({
-        productsLength: products.length,
-        pageNumber: 1,
-        searchOption: false,
-        filterOption: false
-    })
-    calculateShowing(1, products)
-    estimateCurrentPage({
-        current: 0,
-        searchOption: false,
-        filterOption: false
-    })
+    if (!selectionOnly) {
+            loadProducts(products, 1, 0, {
+            inverse: false,
+            searchOptions: false,
+            filterOption: false
+        })
+        calculatePagination({
+            productsLength: products.length,
+            pageNumber: 1,
+            searchOption: false,
+            filterOption: false
+        })
+        calculateShowing(1, products)
+        estimateCurrentPage({
+            current: 0,
+            searchOption: false,
+            filterOption: false
+        })
+    }
 
     localStorage.setItem("filter-option", JSON.stringify({
         'option': false

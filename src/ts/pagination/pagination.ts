@@ -1,5 +1,5 @@
 /* IMPORTS */
-import { Product } from "../../product";
+import { Product } from "../../components/product"
 import { getProducts } from "./get-products";
 import { calculateShowing } from "./products-showing";
 import { updateListProduct } from "../update-product/update-list-product";

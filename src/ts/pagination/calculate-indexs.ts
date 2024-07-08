@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 
 /* OPTIONS */
 export type LoadOptions = {

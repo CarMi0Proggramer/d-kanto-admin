@@ -180,8 +180,7 @@ export function deleteProduct(id: number) {
         })
         .catch((err) => {
             if (err) {
-                /* location.href = window.origin + "/src/pages/500.html"; */
-                console.log(err);
+                location.href = window.origin + "/src/pages/500.html";
             }
         });
 }

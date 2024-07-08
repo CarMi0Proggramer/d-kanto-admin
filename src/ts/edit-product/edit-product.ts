@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 import { showUpdateSuccessMessage } from "../modals/success-messages";
 import { clearErrors, showErrors } from "../add-product/add-product";
 import { xBtn, editDrawer } from "../modals/flowbite-modals";

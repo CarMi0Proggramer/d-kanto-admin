@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 import { changeFilterFinalIndex, changeFilterSections, filterCurrent, filterMatches } from "../filters/filter";
 import { showAddSuccessMessage } from "../modals/success-messages";
 import { detectPagination } from "../pagination/detect-pagination";
@@ -97,7 +97,6 @@ export async function createProductForm(form: HTMLFormElement, buttonsContainer:
             });
         }else {
             location.href = window.origin + "src/pages/500.html";
-            console.error(res);
         }
     })
     .catch(errors => {

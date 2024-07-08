@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 import { changeFilterPagesNumber } from "../filters/filter";
 import { changeSearchPagesNumber } from "../search-box/search";
 import { calculatePagination, estimateCurrentPage, getAdminAlternateColor, getAdminBgColor } from "./pagination";

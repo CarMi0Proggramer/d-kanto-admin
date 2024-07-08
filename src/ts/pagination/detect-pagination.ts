@@ -1,6 +1,6 @@
 /* DETECTING PAGINATION WHEN THE USER ADDS OR DELETES A PRODUCT */
 
-import { Product } from "../../product";
+import { Product } from "../../components/product";
 import { filterCurrent } from "../filters/filter";
 import { searchCurrent } from "../search-box/search";
 import { calculatePagination, calculateSections, current, estimateCurrentPage } from "./pagination";

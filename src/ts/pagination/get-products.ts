@@ -1,4 +1,4 @@
-import { Product } from "../../product";
+import { Product } from "../../components/product"
 
 /* GETTING ALL PRODUCTS FROM DATABASE */
 export async function getProducts() {
