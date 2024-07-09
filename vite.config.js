@@ -9,6 +9,7 @@ export default defineConfig({
                 admin: resolve(__dirname, "src/pages/admin.html"),
                 not_found: resolve(__dirname, "src/pages/404.html"),
                 internal_error: resolve(__dirname, "src/pages/500.html"),
+                register: resolve(__dirname, "src/pages/register.html"),
             },
         },
     },
