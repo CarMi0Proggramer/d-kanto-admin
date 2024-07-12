@@ -160,4 +160,4 @@ const filterClear = document.getElementById("filter-clear-all") as HTMLLinkEleme
 filterSave.addEventListener("click", filter);
 
 /* CLEARING FILTERS */
-filterClear.addEventListener("click",() => clearFilters);
+filterClear.addEventListener("click",() => clearFilters(false));
