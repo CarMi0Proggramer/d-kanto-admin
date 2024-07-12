@@ -75,6 +75,7 @@ function getCheckboxs(containers: NodeListOf<HTMLElement>) {
 export function deleteProduct(id: number) {
     fetch(`http://localhost:3000/products/${id}`, {
         method: "DELETE",
+        credentials: "include"
     })
         .then(async (res) => {
             if (res.ok) {

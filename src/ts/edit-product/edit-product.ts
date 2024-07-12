@@ -29,7 +29,8 @@ export function updateProduct(form: HTMLFormElement) {
             category: drawerCategory.value,
             urlimg: drawerUrlImage.value,
             stock: Number(drawerStock.value)
-        })
+        }),
+        credentials: "include"
     })
     .then(async res => {
         if (res.ok) {

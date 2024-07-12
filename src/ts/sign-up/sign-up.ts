@@ -25,15 +25,15 @@ export function signUp() {
     .then(async res => {
         const data = await res.json();
         if (res.ok) {
-            clearErrors("sign-up-errors")
-            clearData([name, email, password, companyKey]);
+            clearAdminErrors("sign-up-errors")
+            clearAdminData([name, email, password, companyKey]);
 
             sessionStorage.setItem("session-data", JSON.stringify(data));
             location.href = window.origin + "/src/pages/admin.html";
         }else if(400){
             throw new Error(JSON.stringify(data));
         }else{
-            alert("Internal error");
+            location.href = window.origin + "/src/pages/500.html";
         }
     })
     .catch(err =>{
@@ -50,23 +50,25 @@ export function signUp() {
                 errArray.push(errors.message);
             }
 
-            clearErrors("sign-up-errors");
-            showErrors(errArray, "sign-up-errors", signUpform, createBtn); 
+            clearAdminErrors("sign-up-errors");
+            showAdminErrors(errArray, "sign-up-errors", signUpform, createBtn); 
         } catch (err) {
-            console.log(err);
+            location.href = window.origin + "/src/pages/500.html";
         }
     })
 }
 
 /* ADDING EVENTS */
-signUpform.addEventListener("submit", event => {
-    event.preventDefault();
-    signUp();
-})
+if (signUpform) {
+    signUpform.addEventListener("submit", event => {
+        event.preventDefault();
+        signUp();
+    })
+}
 
 
 /* ERRORS FUNCTION */
-function showErrors(errors: string[], idElement: string, fatherElement: HTMLFormElement, beforeElement: HTMLElement) {
+export function showAdminErrors(errors: string[], idElement: string, fatherElement: HTMLFormElement, beforeElement: HTMLElement) {
     const errorsContainer = document.createElement("div");
     errorsContainer.id = idElement;
     errorsContainer.classList.add("mb-4", "text-sm", "font-medium", "sm:col-span-2", "text-red-500");
@@ -81,14 +83,14 @@ function showErrors(errors: string[], idElement: string, fatherElement: HTMLForm
 }
 
 
-function clearErrors(id: string) {
+export function clearAdminErrors(id: string) {
     const errorsContainer = document.getElementById(id);
     if (errorsContainer instanceof HTMLDivElement) {
         errorsContainer.remove();
     }
 }
 
-function clearData(elements: HTMLInputElement[]) {
+export function clearAdminData(elements: HTMLInputElement[]) {
     for (const el of elements) {
         el.value = '';
     }

@@ -40,7 +40,8 @@ export async function createProductForm(form: HTMLFormElement, buttonsContainer:
             category: category.value,
             urlimg: urlimg.value,
             stock: Number(stock.value)
-        })
+        }),
+        credentials: "include"
     })
     .then(async res => {
         if (res.ok) {
