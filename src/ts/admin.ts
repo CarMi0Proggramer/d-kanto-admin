@@ -89,9 +89,12 @@ window.addEventListener("load", () => {
 
     /* SETTING ADMIN DATA */
     setAdminData();
-    /* ADDING SIGN OUT EVENT */
+    /* ADDING SIGN OUT EVENTS */
     const signOutElement = document.getElementById("sign-out") as HTMLAnchorElement;
-    signOutElement.addEventListener("click", signOut)
+    signOutElement.addEventListener("click", signOut);
+    /* SECONDARY ELEMENT */
+    const secondarySignOutElement = document.getElementById("secondary-log-out") as HTMLAnchorElement;
+    secondarySignOutElement.addEventListener("click", signOut);
 });
 
 /* SET THEME ICON FUNCTION */
