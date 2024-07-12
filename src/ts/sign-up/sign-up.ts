@@ -15,6 +15,7 @@ export function signUp() {
         company_key: companyKey.value
     }
 
+    /* SIGNING UP */
     fetch("http://localhost:3000/admins/signUp", {
         method: "POST",
         headers: {
@@ -25,10 +26,12 @@ export function signUp() {
     .then(async res => {
         const data = await res.json();
         if (res.ok) {
+            /* CLEARING ERRORS AND DATA */
             clearAdminErrors("sign-up-errors")
             clearAdminData([name, email, password, companyKey]);
 
-            sessionStorage.setItem("session-data", JSON.stringify(data));
+            /* SETTING DATA */
+            localStorage.setItem("session-data", JSON.stringify(data));
             location.href = window.origin + "/src/pages/admin.html";
         }else if(400){
             throw new Error(JSON.stringify(data));
@@ -50,6 +53,7 @@ export function signUp() {
                 errArray.push(errors.message);
             }
 
+            /* CLEARING AND SHOWING ERRORS */
             clearAdminErrors("sign-up-errors");
             showAdminErrors(errArray, "sign-up-errors", signUpform, createBtn); 
         } catch (err) {
