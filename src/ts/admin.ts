@@ -14,6 +14,8 @@ import {
 } from "./pagination/pagination";
 import { calculateShowing } from "./pagination/products-showing";
 import { finalIndex, initIndex, searchCurrent, searchMatches, searchProduct } from "./search-box/search";
+import { signOut } from "./sign-out/sign-out";
+import { setAdminData } from "./sign-up/load-admin";
 
 /* CREATING PRODUCT */
 const buttonsContainer = document.getElementById(
@@ -83,6 +85,17 @@ window.addEventListener("load", () => {
     }));
 
     /* CHANGING BG COLOR WHEN TOUCHES THEME ICON */
+    setThemeIcon();
+
+    /* SETTING ADMIN DATA */
+    setAdminData();
+    /* ADDING SIGN OUT EVENT */
+    const signOutElement = document.getElementById("sign-out") as HTMLAnchorElement;
+    signOutElement.addEventListener("click", signOut)
+});
+
+/* SET THEME ICON FUNCTION */
+function setThemeIcon() {
     const iconTheme = document.getElementById(
         "theme-toggle"
     ) as HTMLButtonElement;
@@ -103,7 +116,7 @@ window.addEventListener("load", () => {
             estimateCurrentPage({ current: current, searchOption: false, filterOption: false });
         }
     });
-});
+}
 
 /* SEARCH SECTION */
 const searchInput = document.getElementById(
