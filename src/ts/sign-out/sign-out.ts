@@ -2,7 +2,7 @@
 export async function signOut() {
     localStorage.removeItem("session-data");
 
-    fetch("http://localhost:3000/admins/logOut",{
+    fetch("https://d-kanto-backend/admins/logOut",{
         method: "POST",
         credentials: "include" 
     }).catch( err => {

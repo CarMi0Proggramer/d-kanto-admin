@@ -150,7 +150,7 @@ export async function updateEditPreviewData(
 
 /* GETTING PRODUCT BY ID FROM DATABASE */
 async function getProductById(id: number) {
-    let product: Product = await fetch(`http://localhost:3000/products/${id}`,{
+    let product: Product = await fetch(`https://d-kanto-backend/products/${id}`,{
         credentials: "include"
     })
         .then(async (res) => {

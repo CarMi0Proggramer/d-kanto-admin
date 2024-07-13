@@ -16,7 +16,7 @@ export function signUp() {
     }
 
     /* SIGNING UP */
-    fetch("http://localhost:3000/admins/signUp", {
+    fetch("https://d-kanto-backend/admins/signUp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
