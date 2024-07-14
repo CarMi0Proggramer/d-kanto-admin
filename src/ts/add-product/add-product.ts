@@ -28,7 +28,7 @@ type CreateProductOptions = {
 
 /* CRETING A PRODUCT */
 export async function createProductForm(form: HTMLFormElement, buttonsContainer: HTMLDivElement, options: CreateProductOptions) {
-    await fetch("https://d-kanto-backend/products/", {
+    await fetch("https://d-kanto-backend.onrender.com/products/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -16,7 +16,7 @@ function signIn() {
     }
 
     /* SIGNING IN */
-    fetch("https://d-kanto-backend/admins/signIn", {
+    fetch("https://d-kanto-backend.onrender.com/admins/signIn", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

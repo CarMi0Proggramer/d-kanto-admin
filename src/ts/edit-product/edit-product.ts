@@ -17,7 +17,7 @@ const drawerButtonsContainer = document.getElementById("drawer-buttons-container
 
 /* UPDATING A PRODUCT */
 export function updateProduct(form: HTMLFormElement) {
-    fetch(`https://d-kanto-backend/products/${currentProductId}`,{
+    fetch(`https://d-kanto-backend.onrender.com/products/${currentProductId}`,{
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
