@@ -2,7 +2,7 @@
 export async function signOut() {
     localStorage.removeItem("session-data");
 
-    fetch("https://d-kanto-backend/admins/logOut",{
+    fetch("https://d-kanto-backend.onrender.com/admins/logOut",{
         method: "POST",
         credentials: "include" 
     }).catch( err => {
