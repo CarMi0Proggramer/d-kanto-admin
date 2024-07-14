@@ -35,7 +35,11 @@ function signIn() {
             location.href = window.origin + "/src/pages/admin.html";
         }else if(400){
             throw new Error(JSON.stringify(data));
-        }else{
+        } else if(res.status == 404) {
+            clearAdminErrors("sign-up-errors");
+            showAdminErrors(["You're not registered, try signing up"], "sign-up-errors", signInForm, signInBtn);
+        }
+        else{
             location.href = window.origin + "/src/pages/500.html";
         }
     })
