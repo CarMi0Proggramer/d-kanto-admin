@@ -14,7 +14,7 @@ import {
 } from "./pagination/pagination";
 import { calculateShowing } from "./pagination/products-showing";
 import { finalIndex, initIndex, searchCurrent, searchMatches, searchProduct } from "./search-box/search";
-import { signOut } from "./sign-out/sign-out";
+import { signOut } from "./log-out/sign-out";
 import { setAdminData } from "./sign-up/load-admin";
 
 /* CREATING PRODUCT */
