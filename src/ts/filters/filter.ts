@@ -105,6 +105,11 @@ export function clearFilters(selectionOnly?: boolean) {
     }));
 }
 
+const enum TypeFilters {
+    RATING = "rating",
+    CATEGORY = "category",
+    PRICE = "price"
+}
 function getFilters() {
     let filters: FilterOptions[] = [];
 

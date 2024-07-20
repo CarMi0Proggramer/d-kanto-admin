@@ -102,7 +102,7 @@ export function deleteProduct(id: number) {
                     changeFilterMatches(id);
                 }
 
-                /* IF THE PRPDUCT IS VISIBLE */
+                /* IF THE PRODUCT IS VISIBLE */
                 if (productContainers.length < 6) {
                     /* DELETING CONTAINER */
                     deleteContainer(productContainers, id);

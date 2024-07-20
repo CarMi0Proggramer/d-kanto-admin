@@ -54,23 +54,18 @@ type GenerateRatingOptions = {
     preview: boolean
 }
 
-enum TypeFilters {
-    RATING = "rating",
-    CATEGORY = "category",
-    PRICE = "price"
-}
 type FilterOptions = {
-    type: TypeFilters.CATEGORY,
+    type: "category",
     value: string[]
 } | {
-    type: TypeFilters.PRICE,
+    type: "price",
     value: {
         from: number,
         to?: number
     }
 } |
 {
-    type: TypeFilters.RATING,
+    type: "rating",
     value: number
 }
 
