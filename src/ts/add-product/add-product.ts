@@ -3,21 +3,10 @@ import {
     getErrorsArrMessages,
     showErrors,
 } from "../errors/add-or-update-errors";
-import {
-    changeFilterFinalIndex,
-    filterLast,
-} from "../filters/filter";
 import { showAddSuccessMessage } from "../modals/success-messages";
-import {
-    changeLastIndex,
-    lastIndex,
-} from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
-import {
-    changeSearchFinalIndex,
-    finalIndex,
-} from "../search-box/search";
 import { updateListProduct } from "../update-product/update-list-product";
+import { changeIndexPerOption } from "./change-index-per-option";
 import { clearData } from "./clear-data";
 import { createPaginationPerOptions } from "./create-pagination-per-options";
 import { updateProductArrays } from "./update-product-arrays";
@@ -62,24 +51,15 @@ export async function createProductForm(
             const data = await res.json();
             if (res.ok) {
                 updateProductArrays(options,data);
-
-                /* GETTING CONTAINERS */
                 let productContainers = document.querySelectorAll(
                     `tr[name="product-container"]`
                 );
                 if (productContainers.length < 6) {
-                    if (options.searchOption) {
-                        changeSearchFinalIndex(finalIndex + 1);
-                    } else if (options.filterOption) {
-                        changeFilterFinalIndex(filterLast + 1);
-                    } else {
-                        changeLastIndex(lastIndex + 1);
-                    }
+                    changeIndexPerOption(options);
                     updateListProduct(data);
                 }
 
                 createPaginationPerOptions(options);
-                /* GETTING SHOWING AND CLEARING DATA */
                 calculateShowing(options.initIndex, options.arrProduct);
                 clearData({
                     closeModalButton: closeModalButton,
