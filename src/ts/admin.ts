@@ -14,7 +14,7 @@ import {
 } from "./pagination/pagination";
 import { calculateShowing } from "./pagination/products-showing";
 import { finalIndex, initIndex, searchCurrent, searchMatches, searchProduct } from "./search-box/search";
-import { signOut } from "./log-out/sign-out";
+import { logOut } from "./log-out/log-out";
 import { setAdminData } from "./sign-up/load-admin";
 
 /* CREATING PRODUCT */
@@ -90,11 +90,11 @@ window.addEventListener("load", () => {
     /* SETTING ADMIN DATA */
     setAdminData();
     /* ADDING SIGN OUT EVENTS */
-    const signOutElement = document.getElementById("sign-out") as HTMLAnchorElement;
-    signOutElement.addEventListener("click", signOut);
+    const logOutElement = document.getElementById("sign-out") as HTMLAnchorElement;
+    logOutElement.addEventListener("click", logOut);
     /* SECONDARY ELEMENT */
-    const secondarySignOutElement = document.getElementById("secondary-log-out") as HTMLAnchorElement;
-    secondarySignOutElement.addEventListener("click", signOut);
+    const secondaryLogOutElement = document.getElementById("secondary-log-out") as HTMLAnchorElement;
+    secondaryLogOutElement.addEventListener("click", logOut);
 });
 
 /* SET THEME ICON FUNCTION */

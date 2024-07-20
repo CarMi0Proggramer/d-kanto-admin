@@ -1,5 +1,5 @@
 /* SIGNING OUT */
-export async function signOut() {
+export async function logOut() {
     localStorage.removeItem("session-data");
 
     fetch("https://d-kanto-backend.onrender.com/admins/logOut",{
