@@ -1,4 +1,3 @@
-import { Product } from "../../components/product";
 import { products } from "./pagination";
 
 /* THE NUMBER OF PRODUCTS THAT THE USER IS SEEING */

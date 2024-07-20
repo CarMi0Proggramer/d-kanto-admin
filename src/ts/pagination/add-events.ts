@@ -1,15 +1,9 @@
 /* ADDING EVENTS TO PREVIOUS AND NEXT ELEMENT */
-
 import { filterCurrent, filterInit, filterLast, filterMatches, filterPages, filterSections } from "../filters/filter";
 import { finalIndex, initIndex, searchCurrent, searchMatches, searchPages, searchSections } from "../search-box/search";
 import { changePage, pages } from "./change-page";
 import { current, initialIndex, lastIndex, loadProducts, products, sectionsNumber } from "./pagination";
 
-/* OPTIONS */
-type PaginationOptions = {
-    searchOption: boolean;
-    filterOption: boolean;
-};
 export function addEvents(options: PaginationOptions) {
     const previusEl = document.getElementById("previous-page") as HTMLElement;
     const nextEl = document.getElementById("next-page") as HTMLElement;

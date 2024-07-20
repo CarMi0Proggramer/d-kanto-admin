@@ -1,4 +1,4 @@
-import { Product, generateRating } from "../../components/product";
+import { generateRating } from "../../components/product";
 
 /* CATEGORY ALLOWED TYPES */
 const enum CATEGORY_TYPES {

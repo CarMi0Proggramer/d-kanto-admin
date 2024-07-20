@@ -1,12 +1,4 @@
-import { Product } from "../../components/product";
 
-/* OPTIONS */
-export type LoadOptions = {
-    inverse: boolean,
-    deleteBackOption?: boolean,
-    searchOptions: boolean,
-    filterOption: boolean
-}
 
 /* ESTIMATING INIT AND LAST INDEXS */
 export function calcInitLastIndex(arrProduct: Product[], initIndex:number, finalIndex:number, counter:number, options:LoadOptions) {

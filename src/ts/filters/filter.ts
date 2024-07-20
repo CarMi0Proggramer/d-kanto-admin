@@ -1,4 +1,3 @@
-import { Product } from "../../components/product";
 import { calculatePagination, calculateSections, estimateCurrentPage, loadProducts, products } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 

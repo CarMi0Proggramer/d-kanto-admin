@@ -1,6 +1,3 @@
-import { Product } from "../../components/product"
-
-/* GETTING ALL PRODUCTS FROM DATABASE */
 export async function getProducts() {
     let products: Product[] = await fetch("http://localhost:3000/products/",{
         credentials: "include"

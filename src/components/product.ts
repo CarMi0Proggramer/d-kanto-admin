@@ -1,15 +1,3 @@
-
-export interface Product {
-    readonly id: number;
-    name: string;
-    price: number;
-    description: string;
-    category: string;
-    urlimg: string;
-    rating: number;
-    stock: number;
-}
-
 function setClasses(element: HTMLTableRowElement, product: Product) {
     element.setAttribute("name", "product-container");
     element.classList.add(

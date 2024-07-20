@@ -1,30 +1,26 @@
-import { Product } from "../../components/product";
-import { clearErrors, getErrorsArrMessages, showErrors } from "../errors/errors";
+import {
+    clearErrors,
+    getErrorsArrMessages,
+    showErrors,
+} from "../errors/errors";
 import {
     changeFilterFinalIndex,
-    changeFilterSections,
-    filterCurrent,
     filterMatches,
 } from "../filters/filter";
 import { showAddSuccessMessage } from "../modals/success-messages";
-import { detectPagination } from "../pagination/detect-pagination";
 import {
-    calculateSections,
     changeLastIndex,
-    changeSections,
-    current,
     products,
 } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 import {
     changeSearchFinalIndex,
-    changeSearchSections,
     finalIndex,
-    searchCurrent,
     searchMatches,
 } from "../search-box/search";
 import { updateListProduct } from "../update-product/update-list-product";
 import { clearData } from "./clear-data";
+import { createPaginationPerOptions } from "./create-pagination-per-options";
 
 /* VARS */
 const closeModalButton = document.getElementById(
@@ -40,15 +36,6 @@ const urlimg = document.getElementById("product-img") as HTMLInputElement;
 const stock = document.getElementById("add-product-stock") as HTMLInputElement;
 const discardButton = document.getElementById("discard-button");
 const arrElements = [inputName, price, description, category, urlimg, stock];
-
-/* OPTIONS */
-type CreateProductOptions = {
-    filterOption: boolean;
-    searchOption: boolean;
-    arrProduct: Product[];
-    initIndex: number;
-    finalIndex: number;
-};
 
 /* CRETING A PRODUCT */
 export async function createProductForm(
@@ -102,39 +89,7 @@ export async function createProductForm(
                     updateListProduct(product);
                 }
 
-                /* DETECTING PAGINATION PER OPTIONS */
-                if (options.searchOption) {
-                    detectPagination({
-                        add: true,
-                        arrProduct: options.arrProduct,
-                        searchOption: true,
-                        filterOption: false,
-                        current: searchCurrent,
-                    });
-                    changeSearchSections(
-                        calculateSections(options.arrProduct.length)
-                    );
-                } else if (options.filterOption) {
-                    detectPagination({
-                        add: true,
-                        arrProduct: options.arrProduct,
-                        searchOption: false,
-                        filterOption: true,
-                        current: filterCurrent,
-                    });
-                    changeFilterSections(
-                        calculateSections(options.arrProduct.length)
-                    );
-                } else {
-                    detectPagination({
-                        add: true,
-                        arrProduct: products,
-                        searchOption: false,
-                        filterOption: false,
-                        current: current,
-                    });
-                    changeSections(products.length);
-                }
+                createPaginationPerOptions(options);
                 /* GETTING SHOWING AND CLEARING DATA */
                 calculateShowing(options.initIndex, options.arrProduct);
                 clearData({

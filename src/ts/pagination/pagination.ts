@@ -1,5 +1,3 @@
-/* IMPORTS */
-import { Product } from "../../components/product"
 import { getProducts } from "./get-products";
 import { calculateShowing } from "./products-showing";
 import { updateListProduct } from "../update-product/update-list-product";
@@ -9,7 +7,7 @@ import {
     changeSearchInitIndex,
     searchPages,
 } from "../search-box/search";
-import { LoadOptions, calcInitLastIndex } from "./calculate-indexs";
+import { calcInitLastIndex } from "./calculate-indexs";
 import {
     changeFilterCurrent,
     changeFilterFinalIndex,
@@ -221,13 +219,6 @@ export function changeSections(length: number) {
 /* ESTIMATING THE CURRENT PAGE AND GIVING IT A BACKGROUND COLOR */
 /* VARIABLES */
 export let current = 0;
-type EstimatePageOptions = {
-    current: number;
-    searchOption: boolean;
-    filterOption: boolean;
-    especificPage?: number;
-};
-/* ESTIMATING CURRENT PAGE FUNCTION */
 export function estimateCurrentPage(options: EstimatePageOptions) {
     /* GETTING BASIC VARIABLES */
     const bgColor = getAdminBgColor();

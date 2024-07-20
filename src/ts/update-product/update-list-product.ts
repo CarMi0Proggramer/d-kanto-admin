@@ -1,4 +1,4 @@
-import { Product, createProduct } from "../../components/product";
+import { createProduct } from "../../components/product";
 import { confirmDeleteButton, validateDelete } from "../delete-product/delete-product";
 import { updateModals } from "../modals/flowbite-modals";
 

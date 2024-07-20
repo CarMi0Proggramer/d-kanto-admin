@@ -1,4 +1,3 @@
-import { Product } from "../../components/product";
 import { showUpdateSuccessMessage } from "../modals/success-messages";
 import { xBtn, editDrawer } from "../modals/flowbite-modals";
 import { currentProductId } from "../update-product/update-edit-preview-data";
