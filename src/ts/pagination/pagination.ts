@@ -283,38 +283,7 @@ export function changeProducts(id: number) {
     return products;
 }
 
-/* CHANGING LASTINDEX VALUE */
-const enum Operations {
-    PLUS = "plus",
-    MINUS = "minus",
-}
-export function changeLastIndex(
-    absolute: boolean,
-    convertInitial: boolean,
-    num?: number,
-    operation?: string
-) {
-    /* DETECTING VALUE */
-    if (absolute) {
-        lastIndex = products.length;
-    } else if (convertInitial) {
-        lastIndex = initialIndex - 1;
-    } else {
-        if (lastIndex == products.length) {
-            lastIndex -= 1;
-        }
-        if (num && operation) {
-            switch (operation) {
-                case Operations.PLUS:
-                    lastIndex += num;
-                    break;
-
-                case Operations.MINUS:
-                    lastIndex -= num;
-                    break;
-            }
-        }
-    }
-
+export function changeLastIndex(value: number) {
+    lastIndex = value;
     return lastIndex;
 }

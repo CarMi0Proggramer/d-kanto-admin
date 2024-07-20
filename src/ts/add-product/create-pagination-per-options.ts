@@ -4,7 +4,6 @@ import { calculateSections, changeSections, current, products } from "../paginat
 import { changeSearchSections, searchCurrent } from "../search-box/search";
 
 export function createPaginationPerOptions(options: CreateProductOptions) {
-    /* DETECTING PAGINATION PER OPTIONS */
     if (options.searchOption) {
         detectPagination({
             add: true,

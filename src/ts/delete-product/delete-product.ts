@@ -122,7 +122,7 @@ export function deleteProduct(id: number) {
                         }
                     }
                     /* CHANGING LAST INDEXS VALUES */
-                    changeLastIndex(true,false);
+                    changeLastIndex(products.length);
                     if (searchOption.option) {
                         changeSearchFinalIndex(searchMatches.length);
                     }else if(filterOption.option){
@@ -135,7 +135,7 @@ export function deleteProduct(id: number) {
                     }
 
                     /* CHANGING LAST INDEXS VALUES */
-                    changeLastIndex(false,true);
+                    changeLastIndex(initialIndex - 1);
                     if (searchOption.option) {
                         changeSearchFinalIndex(initIndex - 1);
                     }else if(filterOption.option){

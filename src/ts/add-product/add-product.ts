@@ -5,22 +5,22 @@ import {
 } from "../errors/add-or-update-errors";
 import {
     changeFilterFinalIndex,
-    filterMatches,
+    filterLast,
 } from "../filters/filter";
 import { showAddSuccessMessage } from "../modals/success-messages";
 import {
     changeLastIndex,
-    products,
+    lastIndex,
 } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 import {
     changeSearchFinalIndex,
     finalIndex,
-    searchMatches,
 } from "../search-box/search";
 import { updateListProduct } from "../update-product/update-list-product";
 import { clearData } from "./clear-data";
 import { createPaginationPerOptions } from "./create-pagination-per-options";
+import { updateProductArrays } from "./update-product-arrays";
 
 /* VARS */
 const closeModalButton = document.getElementById(
@@ -59,34 +59,23 @@ export async function createProductForm(
         credentials: "include",
     })
         .then(async (res) => {
+            const data = await res.json();
             if (res.ok) {
-                /* UPDATING PRODUCTS ARRAY */
-                const product: Product = await res.json();
-                products.push(product);
-
-                /* ADDING NEW PRODUCT IF THERE'S AN OPTION */
-                if (options.searchOption) {
-                    searchMatches.push(product);
-                } else if (options.filterOption) {
-                    filterMatches.push(product);
-                }
+                updateProductArrays(options,data);
 
                 /* GETTING CONTAINERS */
                 let productContainers = document.querySelectorAll(
                     `tr[name="product-container"]`
                 );
-
                 if (productContainers.length < 6) {
-                    /* CHANGING LAST INDEXS VALUES */
                     if (options.searchOption) {
                         changeSearchFinalIndex(finalIndex + 1);
                     } else if (options.filterOption) {
-                        changeFilterFinalIndex(finalIndex + 1);
+                        changeFilterFinalIndex(filterLast + 1);
                     } else {
-                        changeLastIndex(false, false, 1, "plus");
+                        changeLastIndex(lastIndex + 1);
                     }
-                    /* UPDATING PRODUCTS LIST */
-                    updateListProduct(product);
+                    updateListProduct(data);
                 }
 
                 createPaginationPerOptions(options);
@@ -99,9 +88,7 @@ export async function createProductForm(
                 clearErrors("errors-container");
                 showAddSuccessMessage();
             } else if (res.status === 400) {
-                return res.json().then((errorData) => {
-                    throw new Error(JSON.stringify(errorData));
-                });
+                throw new Error(JSON.stringify(data));
             } else {
                 location.href = window.origin + "src/pages/500.html";
             }
