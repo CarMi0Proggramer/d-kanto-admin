@@ -1,7 +1,7 @@
 /* DELETE MODAL */
 import { Drawer, Modal } from "flowbite";
 import { currentProductId, findCategory, updateEditPreviewData } from "../update-product/update-edit-preview-data";
-import { clearErrors } from "../errors/errors";
+import { clearErrors } from "../errors/add-or-update-errors";
 import { confirmDeleteButton, deleteProduct } from "../delete-product/delete-product";
 
 /* SOME VARS */

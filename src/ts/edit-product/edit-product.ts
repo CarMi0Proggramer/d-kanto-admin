@@ -2,7 +2,7 @@ import { showUpdateSuccessMessage } from "../modals/success-messages";
 import { xBtn, editDrawer } from "../modals/flowbite-modals";
 import { currentProductId } from "../update-product/update-edit-preview-data";
 import { confirmDeleteButton, deleteProduct } from "../delete-product/delete-product";
-import { clearErrors, getErrorsArrMessages, showErrors } from "../errors/errors";
+import { clearErrors, getErrorsArrMessages, showErrors } from "../errors/add-or-update-errors";
 
 /* VARS */
 const drawerName = document.getElementById("drawer-name") as HTMLInputElement;

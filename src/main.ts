@@ -1,4 +1,4 @@
-import { clearAdminData, clearAdminErrors, showAdminErrors } from "./ts/sign-up/sign-up";
+import { clearAdminData, clearAdminErrors, showAdminErrors } from "./ts/errors/admin-errors";
 
 /* VARIABLES */
 const signInForm = document.getElementById("sign-in-form") as HTMLFormElement;
