@@ -1,7 +1,6 @@
 import { calculatePagination, calculateSections, estimateCurrentPage, loadProducts, products } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 
-/* SOME VARIABLES */
 export let initIndex: number;
 export let finalIndex: number;
 export let searchMatches: Product[] = [];

@@ -3,20 +3,6 @@ import { changeSearchPagesNumber } from "../search-box/search";
 import { calculatePagination, estimateCurrentPage, getAdminAlternateColor, getAdminBgColor } from "./pagination";
 import { calculateShowing } from "./products-showing";
 
-/* CHANGE PAGE FUNCTION */
-/* OPTIONS */
-type ChangePageOptions = {
-    next: boolean;
-    init: number;
-    final: number;
-    current: number;
-    pages: number;
-    sectionsNumber: number;
-    arrProduct: Product[];
-    searchOption: boolean;
-    filterOption: boolean;
-};
-
 export let pages = 0;
 export function changePage(options: ChangePageOptions) {
     /* VARS */

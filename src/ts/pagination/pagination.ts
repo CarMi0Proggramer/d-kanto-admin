@@ -134,14 +134,6 @@ const tableNavigation = document.getElementById(
 const showing = tableNavigation.innerHTML;
 export let sectionsNumber: number;
 
-/* CALCULATE PAGINATION OPTIONS */
-type CalculatePaginationOptions = {
-    productsLength: number;
-    pageNumber: number;
-    searchOption: boolean;
-    filterOption: boolean;
-};
-
 /* ESTIMATING PAGINATION */
 export function calculatePagination(options: CalculatePaginationOptions) {
     /* GETTING SECTIONS NUMBER */
@@ -275,8 +267,6 @@ export function getAdminAlternateColor() {
     }
 }
 
-
-
 /* INITIALIZATING PRODUCT´S ARRAY */
 export async function paginate() {
     products = await getProducts();
@@ -294,10 +284,6 @@ export function changeProducts(id: number) {
 }
 
 /* CHANGING LASTINDEX VALUE */
-const enum Operations {
-    PLUS = "plus",
-    MINUS = "minus",
-}
 export function changeLastIndex(
     absolute: boolean,
     convertInitial: boolean,

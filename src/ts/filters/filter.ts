@@ -1,7 +1,6 @@
 import { calculatePagination, calculateSections, estimateCurrentPage, loadProducts, products } from "../pagination/pagination";
 import { calculateShowing } from "../pagination/products-showing";
 
-/* SOME VARIABLES */
 export let filterMatches: Product[];
 export let filterInit: number;
 export let filterLast: number;
@@ -9,14 +8,9 @@ export let filterCurrent: number;
 export let filterPages:number;
 export let filterSections:number;
 
-/* FILTERING PER CATEGORY ELEMENTS */
 const categoryListEls = document.getElementsByClassName("category-li-element") as HTMLCollectionOf<HTMLLIElement>;
-
-/* FILTERING PER PRICE ELEMENTS */
 const priceFrom = document.getElementById("price-from") as HTMLSelectElement;
 const priceTo = document.getElementById("price-to") as HTMLSelectElement;
-
-/* FILTERING PER RATING ELEMENTS */
 const ratingStars = document.getElementsByClassName("category-input-star") as HTMLCollectionOf<HTMLInputElement>;
 
 /* FILTER FUNCTION */
@@ -111,26 +105,6 @@ export function clearFilters(selectionOnly?: boolean) {
     }));
 }
 
-/* GETTIN FILTERS */
-const enum TypeFilters {
-    RATING = "rating",
-    CATEGORY = "category",
-    PRICE = "price"
-}
-type FilterOptions = {
-    type: TypeFilters.CATEGORY,
-    value: string[]
-} | {
-    type: TypeFilters.PRICE,
-    value: {
-        from: number,
-        to?: number
-    }
-} |
-{
-    type: TypeFilters.RATING,
-    value: number
-}
 function getFilters() {
     let filters: FilterOptions[] = [];
 

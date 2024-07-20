@@ -1,78 +1,48 @@
 import { generateRating } from "../../components/product";
 
-/* CATEGORY ALLOWED TYPES */
-const enum CATEGORY_TYPES {
-    TV = "TV",
-    PC = "PC",
-    GA = "GA",
-    CL = "CL",
-    FU = "FU",
-    BK = "BK",
-    SF = "SF",
-    TL = "TL",
-}
-
 /* FINDING CATEGORY */
 export function findCategory(category: string, inverse: boolean) {
     if (inverse) {
         switch (category) {
             case "Clothes":
                 return CATEGORY_TYPES.CL;
-                break;
             case "Furniture":
                 return CATEGORY_TYPES.FU;
-                break;
             case "Gaming/Console":
                 return CATEGORY_TYPES.GA;
-                break;
             case "PC":
                 return CATEGORY_TYPES.PC;
-                break;
             case "TV/Monitors":
                 return CATEGORY_TYPES.TV;
-                break;
             case "Books":
                 return CATEGORY_TYPES.BK;
-                break;
             case "Software":
                 return CATEGORY_TYPES.SF;
-                break;
             case "Toiletries":
                 return CATEGORY_TYPES.TL;
-                break;
             default:
                 return "";
-                break;
         }
     } else {
         switch (category) {
             case CATEGORY_TYPES.CL:
                 return "Clothes";
-                break;
             case CATEGORY_TYPES.FU:
                 return "Furniture";
-                break;
             case CATEGORY_TYPES.GA:
                 return "Gaming/Console";
-                break;
             case CATEGORY_TYPES.PC:
                 return "PC";
-                break;
             case CATEGORY_TYPES.TV:
                 return "TV/Monitors";
-                break;
             case CATEGORY_TYPES.BK:
                 return "Books";
-                break;
             case CATEGORY_TYPES.SF:
                 return "Software";
-                break;
             case CATEGORY_TYPES.TL:
                 return "Toiletries";
-                break;
             default:
                 return "";
-                break;
         }
     }
 }

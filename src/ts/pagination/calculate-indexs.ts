@@ -1,6 +1,3 @@
-
-
-/* ESTIMATING INIT AND LAST INDEXS */
 export function calcInitLastIndex(arrProduct: Product[], initIndex:number, finalIndex:number, counter:number, options:LoadOptions) {
     /* GETTING VALUES */
     if (counter == 6) {
