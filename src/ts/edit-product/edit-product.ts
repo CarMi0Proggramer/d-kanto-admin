@@ -1,9 +1,9 @@
 import { Product } from "../../components/product";
 import { showUpdateSuccessMessage } from "../modals/success-messages";
-import { clearErrors, showErrors } from "../add-product/add-product";
 import { xBtn, editDrawer } from "../modals/flowbite-modals";
 import { currentProductId } from "../update-product/update-edit-preview-data";
 import { confirmDeleteButton, deleteProduct } from "../delete-product/delete-product";
+import { clearErrors, getErrorsArrMessages, showErrors } from "../errors/errors";
 
 /* VARS */
 const drawerName = document.getElementById("drawer-name") as HTMLInputElement;
@@ -67,13 +67,10 @@ export function updateProduct(form: HTMLFormElement) {
         try{
             /* GETTING USER ERRORS */
             errors = JSON.parse(errors.message);
-                let err_messages = []
-                for (const err of errors.message) {
-                    err_messages.push(err.message)
-                }
-
-                clearErrors("drawer-errors-container");
-                showErrors(err_messages, "drawer-errors-container", form, drawerButtonsContainer);
+            const err_messages = getErrorsArrMessages(errors); 
+            
+            clearErrors("drawer-errors-container");
+            showErrors(err_messages, "drawer-errors-container", form, drawerButtonsContainer);
         }
         /* UNKNOWN ERROR */
         catch (err) {
