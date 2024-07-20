@@ -102,9 +102,9 @@ function updateProductContainer(container: HTMLTableRowElement, newData: Product
 /* DELETING A PRODUCT FROM UPDATE DRAWER COMPONENT */
 drawerDeleteButton.addEventListener("click", () => {
     if (confirmDeleteButton instanceof HTMLButtonElement) {
-        confirmDeleteButton.addEventListener("click", () => {
+        confirmDeleteButton.onclick = () => {
             deleteProduct(currentProductId);
             editDrawer.hide();
-        })
+        }
     }
 });
