@@ -284,6 +284,10 @@ export function changeProducts(id: number) {
 }
 
 /* CHANGING LASTINDEX VALUE */
+const enum Operations {
+    PLUS = "plus",
+    MINUS = "minus",
+}
 export function changeLastIndex(
     absolute: boolean,
     convertInitial: boolean,

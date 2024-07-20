@@ -1,6 +1,16 @@
 import { generateRating } from "../../components/product";
 
-/* FINDING CATEGORY */
+const enum CATEGORY_TYPES {
+    TV = "TV",
+    PC = "PC",
+    GA = "GA",
+    CL = "CL",
+    FU = "FU",
+    BK = "BK",
+    SF = "SF",
+    TL = "TL",
+}
+
 export function findCategory(category: string, inverse: boolean) {
     if (inverse) {
         switch (category) {

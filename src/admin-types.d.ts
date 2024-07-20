@@ -92,19 +92,3 @@ type CalculatePaginationOptions = {
     searchOption: boolean;
     filterOption: boolean;
 };
-
-enum Operations {
-    PLUS = "plus",
-    MINUS = "minus",
-}
-
-enum CATEGORY_TYPES {
-    TV = "TV",
-    PC = "PC",
-    GA = "GA",
-    CL = "CL",
-    FU = "FU",
-    BK = "BK",
-    SF = "SF",
-    TL = "TL",
-}

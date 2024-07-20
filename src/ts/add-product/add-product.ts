@@ -107,6 +107,7 @@ export async function createProductForm(
             }
         })
         .catch((errors) => {
+            console.log(errors);
             try {
                 /* GETTING USER ERRORS */
                 errors = JSON.parse(errors.message);
@@ -121,7 +122,8 @@ export async function createProductForm(
                 );
             } catch (err) {
                 /* UNKNOWN ERROR */
-                location.href = window.origin + "/src/pages/500.html";
+                console.log(err);
+                /* location.href = window.origin + "/src/pages/500.html"; */
             }
         });
 }
