@@ -32,7 +32,7 @@ export async function createProductForm(
     buttonsContainer: HTMLDivElement,
     options: CreateProductOptions
 ) {
-    await fetch("http://localhost:3000/products/", {
+    await fetch("https://d-kanto-backend.onrender.com/products/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
