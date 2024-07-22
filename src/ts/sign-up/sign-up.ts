@@ -18,7 +18,7 @@ export function signUp() {
     }
 
     /* SIGNING UP */
-    fetch("https://d-kanto-backend.onrender.com/admins/signUp", {
+    fetch("https://admin-backend-221j.onrender.com/admins/signUp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

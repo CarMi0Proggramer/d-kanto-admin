@@ -1,5 +1,5 @@
 export async function getProducts() {
-    let products: Product[] = await fetch("https://d-kanto-backend.onrender.com/products/",{
+    let products: Product[] = await fetch("https://admin-backend-221j.onrender.com/products/",{
         credentials: "include"
     })
         .then(async (res) => {
