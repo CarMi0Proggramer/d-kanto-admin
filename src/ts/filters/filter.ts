@@ -59,6 +59,7 @@ export function filter() {
 
 /* CLEAR FILTERS FUNCTION */
 export function clearFilters(selectionOnly?: boolean) {
+
     /* CLEARING CATEGORY FILTERS */
     for (let el of categoryListEls) {
         let input = el.querySelector("input") as HTMLInputElement;
@@ -81,7 +82,10 @@ export function clearFilters(selectionOnly?: boolean) {
 
     /* LOADING PRODUCTS AGAIN */
     if (!selectionOnly) {
-            loadProducts(products, 1, 0, {
+        const containers = document.querySelectorAll(`tr[name="product-container"]`);
+        containers.forEach(el => el.remove());
+
+        loadProducts(products, 1, 0, {
             inverse: false,
             searchOptions: false,
             filterOption: false
